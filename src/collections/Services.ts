@@ -49,6 +49,13 @@ export const Services: CollectionConfig = {
       label: 'Hero Heading',
     },
     {
+      name: 'hasQuestionMark',
+      type: 'checkbox',
+      label: 'Heading Has Question Mark',
+      defaultValue: false,
+    },
+
+    {
       name: 'heroSubHeading',
       type: 'text',
       label: 'Hero Sub Heading',

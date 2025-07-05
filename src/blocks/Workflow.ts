@@ -5,6 +5,12 @@ export const Workflow: Block = {
   interfaceName: 'Workflow',
   fields: [
     {
+      name: 'sectionTitle',
+      type: 'text',
+      label: 'Section Title',
+    },
+
+    {
       name: 'cards',
       type: 'array',
       label: 'Cards',

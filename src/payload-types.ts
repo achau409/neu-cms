@@ -258,6 +258,7 @@ export interface HeroBlock {
  * via the `definition` "Workflow".
  */
 export interface Workflow {
+  sectionTitle?: string | null;
   cards?:
     | {
         heading?: string | null;
@@ -377,6 +378,7 @@ export interface Service {
   customerLogo?: (number | null) | Media;
   heroImage?: (number | null) | Media;
   heroHeading?: string | null;
+  hasQuestionMark?: boolean | null;
   heroSubHeading?: string | null;
   serviceIcon?: (number | null) | Media;
   serviceImage: number | Media;
@@ -741,6 +743,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
  * via the `definition` "Workflow_select".
  */
 export interface WorkflowSelect<T extends boolean = true> {
+  sectionTitle?: T;
   cards?:
     | T
     | {
@@ -829,6 +832,7 @@ export interface ServicesSelect<T extends boolean = true> {
   customerLogo?: T;
   heroImage?: T;
   heroHeading?: T;
+  hasQuestionMark?: T;
   heroSubHeading?: T;
   serviceIcon?: T;
   serviceImage?: T;
