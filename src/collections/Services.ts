@@ -6,7 +6,7 @@ export const Services: CollectionConfig = {
   slug: 'services',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', 'updatedAt', 'status'],
+    defaultColumns: [ 'slug', 'updatedAt', 'status'],
   },
   access: {
     read: () => true,
