@@ -6,7 +6,7 @@ export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', 'updatedAt','status'],
+    defaultColumns: ['slug', 'updatedAt','status'],
     group: 'Content', // Group pages in the admin panel',
   },
   access: {

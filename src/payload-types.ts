@@ -380,6 +380,7 @@ export interface Service {
   heroHeading?: string | null;
   hasQuestionMark?: boolean | null;
   heroSubHeading?: string | null;
+  afterCTAText?: string | null;
   serviceIcon?: (number | null) | Media;
   serviceImage: number | Media;
   benefits?: {
@@ -834,6 +835,7 @@ export interface ServicesSelect<T extends boolean = true> {
   heroHeading?: T;
   hasQuestionMark?: T;
   heroSubHeading?: T;
+  afterCTAText?: T;
   serviceIcon?: T;
   serviceImage?: T;
   benefits?:

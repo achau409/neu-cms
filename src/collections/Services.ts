@@ -61,6 +61,11 @@ export const Services: CollectionConfig = {
       label: 'Hero Sub Heading',
     },
     {
+      name: 'afterCTAText',
+      type: 'text',
+      label: 'After CTAText',
+    },
+    {
       name: 'serviceIcon',
       type: 'upload',
       label: 'Service Icon',
