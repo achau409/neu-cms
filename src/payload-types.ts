@@ -229,6 +229,7 @@ export interface Page {
             blockName?: string | null;
             blockType: 'card';
           }
+        | BeforeAfterBlock
       )[]
     | null;
   isHomePage?: boolean | null;
@@ -350,6 +351,23 @@ export interface ManyImagesBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BeforeAfterBlock".
+ */
+export interface BeforeAfterBlock {
+  headerTitle?: string | null;
+  headerDescription?: string | null;
+  beforeImage?: (number | null) | Media;
+  afterImage?: (number | null) | Media;
+  /**
+   * Enter a color value (e.g., #FFFFFF)
+   */
+  backgroundColor?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'beforeAfter';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header".
  */
 export interface Header {
@@ -436,7 +454,24 @@ export interface Service {
       | {
           name?: string | null;
           image?: (number | null) | Media;
-          testimonial?: string | null;
+          /**
+           * Please enter the testimonial in the rich text format
+           */
+          testimonial?: {
+            root: {
+              type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          } | null;
           id?: string | null;
         }[]
       | null;
@@ -502,6 +537,7 @@ export interface Service {
             blockName?: string | null;
             blockType: 'card';
           }
+        | BeforeAfterBlock
       )[]
     | null;
   /**
@@ -715,6 +751,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        beforeAfter?: T | BeforeAfterBlockSelect<T>;
       };
   isHomePage?: T;
   status?: T;
@@ -808,6 +845,19 @@ export interface ManyImagesBlockSelect<T extends boolean = true> {
       };
   backgroundColor?: T;
   isTopPosition?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BeforeAfterBlock_select".
+ */
+export interface BeforeAfterBlockSelect<T extends boolean = true> {
+  headerTitle?: T;
+  headerDescription?: T;
+  beforeImage?: T;
+  afterImage?: T;
+  backgroundColor?: T;
   id?: T;
   blockName?: T;
 }
@@ -959,6 +1009,7 @@ export interface ServicesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        beforeAfter?: T | BeforeAfterBlockSelect<T>;
       };
   questions?: T;
   status?: T;

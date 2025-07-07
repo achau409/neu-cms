@@ -1,6 +1,7 @@
 import { blocks } from '@/blocks/registerBlocks'
 import createSlugField from '@/fields/slug'
 import { CollectionConfig } from 'payload'
+import { createLexicalEditor } from './Lexical'
 
 export const Services: CollectionConfig = {
   slug: 'services',
@@ -233,8 +234,12 @@ export const Services: CollectionConfig = {
             },
             {
               name: 'testimonial',
-              type: 'text',
+              type: 'richText',
               label: 'Testimonial',
+              editor: createLexicalEditor(),
+              admin: {
+                description: 'Please enter the testimonial in the rich text format',
+              },
             },
           ],
         },

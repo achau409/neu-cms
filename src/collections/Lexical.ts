@@ -1,7 +1,8 @@
-import { lexicalEditor, BlocksFeature } from '@payloadcms/richtext-lexical'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { BoldFeature, HeadingFeature } from '@payloadcms/richtext-lexical'
 
 export const createLexicalEditor = () => {
   return lexicalEditor({
-    features: ({ defaultFeatures }) => [...defaultFeatures],
+    features: [BoldFeature(), HeadingFeature()],
   })
 }
