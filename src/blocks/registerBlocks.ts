@@ -8,5 +8,6 @@ import { Image } from './Image'
 import { TextImage } from './textImage'
 import { Card } from './Card'
 import { BeforeAfter } from './BeforeAfter'
+import { Cities } from './Cities'
 
-export const blocks = [Hero, Workflow, Statistic, Htmlblock, Text, TextImage, Image, manyImages, Card, BeforeAfter]
+export const blocks = [Hero, Workflow, Statistic, Htmlblock, Text, TextImage, Image, manyImages, Card, BeforeAfter, Cities ]

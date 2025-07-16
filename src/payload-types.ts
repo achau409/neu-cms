@@ -230,6 +230,7 @@ export interface Page {
             blockType: 'card';
           }
         | BeforeAfterBlock
+        | CitiesBlock
       )[]
     | null;
   isHomePage?: boolean | null;
@@ -365,6 +366,26 @@ export interface BeforeAfterBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'beforeAfter';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CitiesBlock".
+ */
+export interface CitiesBlock {
+  sectionTitle?: string | null;
+  cities?:
+    | {
+        city?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Enter a color value (e.g., #FFFFFF)
+   */
+  backgroundColor?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cities';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -538,6 +559,7 @@ export interface Service {
             blockType: 'card';
           }
         | BeforeAfterBlock
+        | CitiesBlock
       )[]
     | null;
   /**
@@ -552,6 +574,14 @@ export interface Service {
     | number
     | boolean
     | null;
+  /**
+   * Please enter the table name for ZIP codes
+   */
+  zipCodes?: string | null;
+  /**
+   * Please enter the table name for Service Request
+   */
+  serviceRequest?: string | null;
   status?: ('draft' | 'published') | null;
   contactPhone?: string | null;
   seo?: {
@@ -752,6 +782,7 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
         beforeAfter?: T | BeforeAfterBlockSelect<T>;
+        cities?: T | CitiesBlockSelect<T>;
       };
   isHomePage?: T;
   status?: T;
@@ -857,6 +888,22 @@ export interface BeforeAfterBlockSelect<T extends boolean = true> {
   headerDescription?: T;
   beforeImage?: T;
   afterImage?: T;
+  backgroundColor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CitiesBlock_select".
+ */
+export interface CitiesBlockSelect<T extends boolean = true> {
+  sectionTitle?: T;
+  cities?:
+    | T
+    | {
+        city?: T;
+        id?: T;
+      };
   backgroundColor?: T;
   id?: T;
   blockName?: T;
@@ -1010,8 +1057,11 @@ export interface ServicesSelect<T extends boolean = true> {
               blockName?: T;
             };
         beforeAfter?: T | BeforeAfterBlockSelect<T>;
+        cities?: T | CitiesBlockSelect<T>;
       };
   questions?: T;
+  zipCodes?: T;
+  serviceRequest?: T;
   status?: T;
   contactPhone?: T;
   seo?:

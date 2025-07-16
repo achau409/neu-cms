@@ -2,12 +2,13 @@ import { blocks } from '@/blocks/registerBlocks'
 import createSlugField from '@/fields/slug'
 import { CollectionConfig } from 'payload'
 import { createLexicalEditor } from './Lexical'
+import { Table } from '@payloadcms/db-postgres/drizzle'
 
 export const Services: CollectionConfig = {
   slug: 'services',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: [ 'slug', 'updatedAt', 'status'],
+    defaultColumns: ['slug', 'updatedAt', 'status'],
   },
   access: {
     read: () => true,
@@ -245,6 +246,7 @@ export const Services: CollectionConfig = {
         },
       ],
     },
+
     {
       name: 'content',
       type: 'blocks',
@@ -261,6 +263,23 @@ export const Services: CollectionConfig = {
         description: 'Please enter the questions and answers in the JSON format',
       },
     },
+    {
+      name: 'zipCodes',
+      type: 'text',
+      label: 'ZIP Codes Table',
+      admin: {
+        description: 'Please enter the table name for ZIP codes',
+      },
+    },
+    {
+      name: 'serviceRequest',
+      type: 'text',
+      label: 'Service Request Table',
+      admin: {
+        description: 'Please enter the table name for Service Request',
+      },
+    },
+
     {
       name: 'status',
       type: 'select',
