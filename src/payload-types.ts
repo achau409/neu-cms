@@ -231,6 +231,7 @@ export interface Page {
           }
         | BeforeAfterBlock
         | CitiesBlock
+        | ZipCodeBlock
       )[]
     | null;
   isHomePage?: boolean | null;
@@ -386,6 +387,26 @@ export interface CitiesBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'cities';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ZipCodeBlock".
+ */
+export interface ZipCodeBlock {
+  heading?: string | null;
+  subheading?: string | null;
+  /**
+   * Toggle to enable or disable the Below Text field
+   */
+  belowTextEnabled?: boolean | null;
+  belowText?: string | null;
+  /**
+   * Enter a color value (e.g., #FFFFFF)
+   */
+  backgroundColor?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'zipcode';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -560,6 +581,7 @@ export interface Service {
           }
         | BeforeAfterBlock
         | CitiesBlock
+        | ZipCodeBlock
       )[]
     | null;
   /**
@@ -783,6 +805,7 @@ export interface PagesSelect<T extends boolean = true> {
             };
         beforeAfter?: T | BeforeAfterBlockSelect<T>;
         cities?: T | CitiesBlockSelect<T>;
+        zipcode?: T | ZipCodeBlockSelect<T>;
       };
   isHomePage?: T;
   status?: T;
@@ -904,6 +927,19 @@ export interface CitiesBlockSelect<T extends boolean = true> {
         city?: T;
         id?: T;
       };
+  backgroundColor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ZipCodeBlock_select".
+ */
+export interface ZipCodeBlockSelect<T extends boolean = true> {
+  heading?: T;
+  subheading?: T;
+  belowTextEnabled?: T;
+  belowText?: T;
   backgroundColor?: T;
   id?: T;
   blockName?: T;
@@ -1058,6 +1094,7 @@ export interface ServicesSelect<T extends boolean = true> {
             };
         beforeAfter?: T | BeforeAfterBlockSelect<T>;
         cities?: T | CitiesBlockSelect<T>;
+        zipcode?: T | ZipCodeBlockSelect<T>;
       };
   questions?: T;
   zipCodes?: T;
