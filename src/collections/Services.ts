@@ -2,13 +2,12 @@ import { blocks } from '@/blocks/registerBlocks'
 import createSlugField from '@/fields/slug'
 import { CollectionConfig } from 'payload'
 import { createLexicalEditor } from './Lexical'
-import { Table } from '@payloadcms/db-postgres/drizzle'
 
 export const Services: CollectionConfig = {
   slug: 'services',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['slug', 'updatedAt', 'status'],
+    defaultColumns: ['slug', 'variant', 'updatedAt', 'status'],
   },
   access: {
     read: () => true,
@@ -50,6 +49,13 @@ export const Services: CollectionConfig = {
       type: 'text',
       label: 'Hero Heading',
     },
+    {
+      name: 'hasLocation',
+      type: 'checkbox',
+      label: 'Show User Location',
+      defaultValue: true,
+    },
+
     {
       name: 'hasQuestionMark',
       type: 'checkbox',
@@ -297,6 +303,20 @@ export const Services: CollectionConfig = {
       name: 'contactPhone',
       type: 'text',
       label: 'Contact Phone Text',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'variant',
+      type: 'select',
+      label: 'Landing Page Variant',
+      defaultValue: 'lp1',
+      options: [
+        { label: 'Landing Page 1 - lp1', value: 'lp1' },
+        { label: 'Landing Page 2 - lp2', value: 'lp2' },
+        { label: 'Landing Page 3 - lp3', value: 'lp3' },
+      ],
       admin: {
         position: 'sidebar',
       },

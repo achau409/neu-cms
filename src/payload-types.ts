@@ -438,6 +438,7 @@ export interface Service {
   customerLogo?: (number | null) | Media;
   heroImage?: (number | null) | Media;
   heroHeading?: string | null;
+  hasLocation?: boolean | null;
   hasQuestionMark?: boolean | null;
   heroSubHeading?: string | null;
   afterCTAText?: string | null;
@@ -606,6 +607,7 @@ export interface Service {
   serviceRequest?: string | null;
   status?: ('draft' | 'published') | null;
   contactPhone?: string | null;
+  variant?: ('lp1' | 'lp2' | 'lp3') | null;
   seo?: {
     metaTitle?: string | null;
     metaDescription?: string | null;
@@ -966,6 +968,7 @@ export interface ServicesSelect<T extends boolean = true> {
   customerLogo?: T;
   heroImage?: T;
   heroHeading?: T;
+  hasLocation?: T;
   hasQuestionMark?: T;
   heroSubHeading?: T;
   afterCTAText?: T;
@@ -1101,6 +1104,7 @@ export interface ServicesSelect<T extends boolean = true> {
   serviceRequest?: T;
   status?: T;
   contactPhone?: T;
+  variant?: T;
   seo?:
     | T
     | {
