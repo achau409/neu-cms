@@ -316,6 +316,11 @@ export const Services: CollectionConfig = {
         { label: 'Landing Page 1 - lp1', value: 'lp1' },
         { label: 'Landing Page 2 - lp2', value: 'lp2' },
         { label: 'Landing Page 3 - lp3', value: 'lp3' },
+        { label: 'Landing Page 4 - lp4', value: 'lp4' },
+        { label: 'Landing Page 5 - lp5', value: 'lp5' },
+        { label: 'Landing Page 6 - lp6', value: 'lp6' },
+        { label: 'Landing Page 7 - lp7', value: 'lp7' },
+        { label: 'Landing Page 8 - lp8', value: 'lp8' }
       ],
       admin: {
         position: 'sidebar',
