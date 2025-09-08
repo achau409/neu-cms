@@ -607,7 +607,7 @@ export interface Service {
   serviceRequest?: string | null;
   status?: ('draft' | 'published') | null;
   contactPhone?: string | null;
-  variant?: ('lp1' | 'lp2' | 'lp3') | null;
+  variant?: ('lp1' | 'lp2' | 'lp3' | 'lp4' | 'lp5' | 'lp6' | 'lp7' | 'lp8') | null;
   seo?: {
     metaTitle?: string | null;
     metaDescription?: string | null;
