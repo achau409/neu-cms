@@ -441,6 +441,7 @@ export interface Service {
   hasLocation?: boolean | null;
   hasQuestionMark?: boolean | null;
   heroSubHeading?: string | null;
+  CTAText?: string | null;
   afterCTAText?: string | null;
   serviceIcon?: (number | null) | Media;
   serviceImage: number | Media;
@@ -971,6 +972,7 @@ export interface ServicesSelect<T extends boolean = true> {
   hasLocation?: T;
   hasQuestionMark?: T;
   heroSubHeading?: T;
+  CTAText?: T;
   afterCTAText?: T;
   serviceIcon?: T;
   serviceImage?: T;

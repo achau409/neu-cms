@@ -69,6 +69,12 @@ export const Services: CollectionConfig = {
       label: 'Hero Sub Heading',
     },
     {
+      name: 'CTAText',
+      type: 'text',
+      label: 'CTAText',
+    },
+
+    {
       name: 'afterCTAText',
       type: 'text',
       label: 'After CTAText',
@@ -320,7 +326,7 @@ export const Services: CollectionConfig = {
         { label: 'Landing Page 5 - lp5', value: 'lp5' },
         { label: 'Landing Page 6 - lp6', value: 'lp6' },
         { label: 'Landing Page 7 - lp7', value: 'lp7' },
-        { label: 'Landing Page 8 - lp8', value: 'lp8' }
+        { label: 'Landing Page 8 - lp8', value: 'lp8' },
       ],
       admin: {
         position: 'sidebar',
