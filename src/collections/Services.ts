@@ -286,7 +286,7 @@ export const Services: CollectionConfig = {
     {
       name: 'neuMediaText',
       type: 'text',
-      label: ' TCPA for Neu Media Group',
+      label: ' TCPA for Neu Media Group ',
       admin: {
         description: 'Please enter Description for Neu Media Group',
       },
