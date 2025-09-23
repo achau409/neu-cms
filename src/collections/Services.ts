@@ -284,6 +284,15 @@ export const Services: CollectionConfig = {
       },
     },
     {
+      name: 'neuMediaText',
+      type: 'text',
+      label: 'Description for Neu Media Group',
+      admin: {
+        description: 'Please enter Description for Neu Media Group',
+      },
+    },
+
+    {
       name: 'serviceRequest',
       type: 'text',
       label: 'Service Request Table',

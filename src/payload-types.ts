@@ -603,6 +603,10 @@ export interface Service {
    */
   zipCodes?: string | null;
   /**
+   * Please enter Description for Neu Media Group
+   */
+  neuMediaText?: string | null;
+  /**
    * Please enter the table name for Service Request
    */
   serviceRequest?: string | null;
@@ -1103,6 +1107,7 @@ export interface ServicesSelect<T extends boolean = true> {
       };
   questions?: T;
   zipCodes?: T;
+  neuMediaText?: T;
   serviceRequest?: T;
   status?: T;
   contactPhone?: T;
