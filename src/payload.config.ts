@@ -1,3 +1,4 @@
+import { Experiments } from './collections/Experiments';
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
@@ -23,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages,Header,Services,Footer], 
+  collections: [Users, Media, Pages,Experiments,Header,Services,Footer], 
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

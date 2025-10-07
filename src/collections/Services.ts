@@ -6,7 +6,7 @@ import { createLexicalEditor } from './Lexical'
 export const Services: CollectionConfig = {
   slug: 'services',
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: 'slug',
     defaultColumns: ['slug', 'variant', 'updatedAt', 'status'],
   },
   access: {

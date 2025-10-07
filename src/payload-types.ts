@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
+    experiments: Experiment;
     header: Header;
     services: Service;
     footer: Footer;
@@ -82,6 +83,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    experiments: ExperimentsSelect<false> | ExperimentsSelect<true>;
     header: HeaderSelect<false> | HeaderSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
@@ -410,13 +412,12 @@ export interface ZipCodeBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "header".
+ * via the `definition` "experiments".
  */
-export interface Header {
+export interface Experiment {
   id: number;
   title?: string | null;
-  headerLogo: number | Media;
-  status?: ('active' | 'inactive') | null;
+  slug?: (number | null) | Service;
   updatedAt: string;
   createdAt: string;
 }
@@ -623,6 +624,18 @@ export interface Service {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: number;
+  title?: string | null;
+  headerLogo: number | Media;
+  status?: ('active' | 'inactive') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer".
  */
 export interface Footer {
@@ -659,6 +672,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'experiments';
+        value: number | Experiment;
       } | null)
     | ({
         relationTo: 'header';
@@ -950,6 +967,16 @@ export interface ZipCodeBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "experiments_select".
+ */
+export interface ExperimentsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
