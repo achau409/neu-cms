@@ -6,6 +6,12 @@ export const Experiments: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug'],
   },
+  access: {
+    read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
+  },
   fields: [
     {
       name: 'title',
