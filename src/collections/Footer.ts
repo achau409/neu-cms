@@ -1,3 +1,4 @@
+import { revalidateCms, revalidateCmsOnDelete } from '@/hooks/revalidate'
 import { CollectionConfig } from 'payload'
 
 export const Footer: CollectionConfig = {
@@ -12,6 +13,10 @@ export const Footer: CollectionConfig = {
     create: () => true,
     update: () => true,
     delete: () => true,
+  },
+  hooks: {
+    afterChange: [revalidateCms],
+    afterDelete: [revalidateCmsOnDelete],
   },
   fields: [
     {

@@ -1,5 +1,6 @@
 import { blocks } from '@/blocks/registerBlocks'
 import createSlugField from '@/fields/slug'
+import { revalidateCms, revalidateCmsOnDelete } from '@/hooks/revalidate'
 import { CollectionConfig } from 'payload'
 import { createLexicalEditor } from './Lexical'
 
@@ -14,6 +15,10 @@ export const Services: CollectionConfig = {
     create: () => true,
     update: () => true,
     delete: () => true,
+  },
+  hooks: {
+    afterChange: [revalidateCms],
+    afterDelete: [revalidateCmsOnDelete],
   },
   fields: [
     {

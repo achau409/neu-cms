@@ -1,3 +1,4 @@
+import { revalidateCms, revalidateCmsOnDelete } from '@/hooks/revalidate'
 import { CollectionConfig } from 'payload'
 
 export const Header: CollectionConfig = {
@@ -7,12 +8,16 @@ export const Header: CollectionConfig = {
     group: 'Navigation',
     defaultColumns: ['title','updatedAt','status'],
   },
-access: {
+  access: {
     read: () => true,
     create: () => true,
     update: () => true,
     delete: () => true,
-    },
+  },
+  hooks: {
+    afterChange: [revalidateCms],
+    afterDelete: [revalidateCmsOnDelete],
+  },
   fields: [
     {
       name: 'title',

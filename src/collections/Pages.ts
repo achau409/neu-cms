@@ -1,5 +1,6 @@
 import { blocks } from '@/blocks/registerBlocks'
 import createSlugField from '@/fields/slug'
+import { revalidateCms, revalidateCmsOnDelete } from '@/hooks/revalidate'
 import { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -16,7 +17,10 @@ export const Pages: CollectionConfig = {
     singular: 'Page',
     plural: 'Pages',
   },
-
+  hooks: {
+    afterChange: [revalidateCms],
+    afterDelete: [revalidateCmsOnDelete],
+  },
   fields: [
     {
       name: 'title',
