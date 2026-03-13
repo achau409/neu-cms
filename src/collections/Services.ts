@@ -323,9 +323,8 @@ export const Services: CollectionConfig = {
       name: 'category',
       type: 'select',
       label: 'Category',
-      defaultValue: 'popular',
+      defaultValue: 'interior',
       options: [
-        { label: 'Most Popular', value: 'popular' },
         { label: 'Interior', value: 'interior' },
         { label: 'Exterior', value: 'exterior' },
       ],
@@ -333,6 +332,16 @@ export const Services: CollectionConfig = {
         position: 'sidebar',
       },
     },
+    {
+      name: 'popular',
+      type: 'checkbox',
+      label: 'Add to Most Popular',
+      defaultValue: false,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+
     {
       name: 'heroTextWidth',
       type: 'select',
