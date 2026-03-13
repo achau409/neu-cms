@@ -232,6 +232,7 @@ export interface Page {
         | BeforeAfterBlock
         | CitiesBlock
         | ZipCodeBlock
+        | FAQ
       )[]
     | null;
   isHomePage?: boolean | null;
@@ -410,6 +411,28 @@ export interface ZipCodeBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ".
+ */
+export interface FAQ {
+  sectionTitle?: string | null;
+  sectionSubtitle?: string | null;
+  items?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Enter a color value (e.g., #FFFFFF)
+   */
+  backgroundColor?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header".
  */
 export interface Header {
@@ -584,6 +607,7 @@ export interface Service {
         | BeforeAfterBlock
         | CitiesBlock
         | ZipCodeBlock
+        | FAQ
       )[]
     | null;
   /**
@@ -815,6 +839,7 @@ export interface PagesSelect<T extends boolean = true> {
         beforeAfter?: T | BeforeAfterBlockSelect<T>;
         cities?: T | CitiesBlockSelect<T>;
         zipcode?: T | ZipCodeBlockSelect<T>;
+        faq?: T | FAQSelect<T>;
       };
   isHomePage?: T;
   status?: T;
@@ -949,6 +974,24 @@ export interface ZipCodeBlockSelect<T extends boolean = true> {
   subheading?: T;
   belowTextEnabled?: T;
   belowText?: T;
+  backgroundColor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ_select".
+ */
+export interface FAQSelect<T extends boolean = true> {
+  sectionTitle?: T;
+  sectionSubtitle?: T;
+  items?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   backgroundColor?: T;
   id?: T;
   blockName?: T;
@@ -1106,6 +1149,7 @@ export interface ServicesSelect<T extends boolean = true> {
         beforeAfter?: T | BeforeAfterBlockSelect<T>;
         cities?: T | CitiesBlockSelect<T>;
         zipcode?: T | ZipCodeBlockSelect<T>;
+        faq?: T | FAQSelect<T>;
       };
   questions?: T;
   zipCodes?: T;

@@ -1,3 +1,4 @@
+import { Faq } from './Faq'
 import { Hero } from './Hero'
 import { Statistic } from './Statistic'
 import { Workflow } from './Workflow'
@@ -11,4 +12,4 @@ import { BeforeAfter } from './BeforeAfter'
 import { Cities } from './Cities'
 import { ZipCode } from './ZipCode'
 
-export const blocks = [Hero, Workflow, Statistic, Htmlblock, Text, TextImage, Image, manyImages, Card, BeforeAfter, Cities, ZipCode]
+export const blocks = [Hero, Workflow, Statistic, Htmlblock, Text, TextImage, Image, manyImages, Card, BeforeAfter, Cities, ZipCode, Faq]
