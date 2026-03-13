@@ -611,6 +611,8 @@ export interface Service {
    */
   serviceRequest?: string | null;
   status?: ('draft' | 'published') | null;
+  category?: ('popular' | 'interior' | 'exterior') | null;
+  heroTextWidth?: ('2xl' | '3xl' | '4xl') | null;
   contactPhone?: string | null;
   variant?: ('lp1' | 'lp2' | 'lp3' | 'lp4' | 'lp5' | 'lp6' | 'lp7' | 'lp8') | null;
   seo?: {
@@ -1110,6 +1112,8 @@ export interface ServicesSelect<T extends boolean = true> {
   neuMediaText?: T;
   serviceRequest?: T;
   status?: T;
+  category?: T;
+  heroTextWidth?: T;
   contactPhone?: T;
   variant?: T;
   seo?:

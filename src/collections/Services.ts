@@ -320,6 +320,35 @@ export const Services: CollectionConfig = {
       },
     },
     {
+      name: 'category',
+      type: 'select',
+      label: 'Category',
+      defaultValue: 'popular',
+      options: [
+        { label: 'Most Popular', value: 'popular' },
+        { label: 'Interior', value: 'interior' },
+        { label: 'Exterior', value: 'exterior' },
+      ],
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'heroTextWidth',
+      type: 'select',
+      label: 'Hero Text Width',
+      defaultValue: '3xl',
+      options: [
+        { label: '2xl', value: '2xl' },
+        { label: '3xl', value: '3xl' },
+        { label: '4xl', value: '4xl' }
+      ],
+      admin: {
+        position: 'sidebar',
+      },
+    },
+
+    {
       name: 'contactPhone',
       type: 'text',
       label: 'Contact Phone Text',
