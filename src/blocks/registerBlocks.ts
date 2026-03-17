@@ -11,5 +11,6 @@ import { Card } from './Card'
 import { BeforeAfter } from './BeforeAfter'
 import { Cities } from './Cities'
 import { ZipCode } from './ZipCode'
+import { TrustBadges } from './TrustBadges'
 
-export const blocks = [Hero, Workflow, Statistic, Htmlblock, Text, TextImage, Image, manyImages, Card, BeforeAfter, Cities, ZipCode, Faq]
+export const blocks = [Hero, Workflow, Statistic,TrustBadges, Htmlblock, Text, TextImage, Image, manyImages, Card, BeforeAfter, Cities, ZipCode, Faq]

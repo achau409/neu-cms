@@ -173,6 +173,7 @@ export interface Page {
         | HeroBlock
         | Workflow
         | Statistic
+        | TrustBadges
         | HTMLBlock
         | {
             text?: string | null;
@@ -302,6 +303,30 @@ export interface Statistic {
   id?: string | null;
   blockName?: string | null;
   blockType: 'statistic';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TrustBadges".
+ */
+export interface TrustBadges {
+  badges?:
+    | {
+        name: string;
+        icon: number | Media;
+        description?: string | null;
+        subtitle?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  trustSignals?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'trust-badges';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -520,6 +545,8 @@ export interface Service {
     testimonialList?:
       | {
           name?: string | null;
+          location?: string | null;
+          zipCode?: string | null;
           image?: (number | null) | Media;
           /**
            * Please enter the testimonial in the rich text format
@@ -548,6 +575,7 @@ export interface Service {
         | HeroBlock
         | Workflow
         | Statistic
+        | TrustBadges
         | HTMLBlock
         | {
             text?: string | null;
@@ -787,6 +815,7 @@ export interface PagesSelect<T extends boolean = true> {
         hero?: T | HeroBlockSelect<T>;
         workflow?: T | WorkflowSelect<T>;
         statistic?: T | StatisticSelect<T>;
+        'trust-badges'?: T | TrustBadgesSelect<T>;
         htmlblock?: T | HTMLBlockSelect<T>;
         text?:
           | T
@@ -895,6 +924,29 @@ export interface StatisticSelect<T extends boolean = true> {
         title?: T;
         cardIcon?: T;
         backgroundColor?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TrustBadges_select".
+ */
+export interface TrustBadgesSelect<T extends boolean = true> {
+  badges?:
+    | T
+    | {
+        name?: T;
+        icon?: T;
+        description?: T;
+        subtitle?: T;
+        id?: T;
+      };
+  trustSignals?:
+    | T
+    | {
+        text?: T;
         id?: T;
       };
   id?: T;
@@ -1086,6 +1138,8 @@ export interface ServicesSelect<T extends boolean = true> {
           | T
           | {
               name?: T;
+              location?: T;
+              zipCode?: T;
               image?: T;
               testimonial?: T;
               id?: T;
@@ -1097,6 +1151,7 @@ export interface ServicesSelect<T extends boolean = true> {
         hero?: T | HeroBlockSelect<T>;
         workflow?: T | WorkflowSelect<T>;
         statistic?: T | StatisticSelect<T>;
+        'trust-badges'?: T | TrustBadgesSelect<T>;
         htmlblock?: T | HTMLBlockSelect<T>;
         text?:
           | T

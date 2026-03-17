@@ -245,6 +245,18 @@ export const Services: CollectionConfig = {
               label: 'Name',
             },
             {
+              name: 'location',
+              type: 'text',
+              label: 'Location',
+              defaultValue: 'New York, NY',
+            },
+            {
+              name: 'zipCode',
+              type: 'text',
+              label: 'Zip Code',
+              defaultValue: '10001',
+            },
+            {
               name: 'image',
               type: 'upload',
               relationTo: 'media',
