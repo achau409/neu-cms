@@ -6,13 +6,19 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { s3Storage } from '@payloadcms/storage-s3';
+import { s3Storage } from '@payloadcms/storage-s3'
+import { mcpPlugin } from '@payloadcms/plugin-mcp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import Pages from './collections/Pages'
 import { Header } from './collections/Header'
 import { Services } from './collections/Services'
 import { Footer } from './collections/Footer'
+import { contentPrompts } from './mcp/contentPrompts'
+
+type McpPluginOptions = Parameters<typeof mcpPlugin>[0]
+type McpPrompts = NonNullable<NonNullable<McpPluginOptions['mcp']>['prompts']>
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -33,10 +39,65 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    migrationDir: path.resolve(dirname, 'migrations'),
   }),
   sharp,
   plugins: [
     payloadCloudPlugin(),
+    mcpPlugin({
+      collections: {
+        pages: {
+          enabled: {
+            find: true,
+            create: true,
+            update: true,
+            delete: false,
+          },
+          description:
+            'Marketing and site pages with block-based layout, SEO metadata, and draft/published status.',
+        },
+        services: {
+          enabled: {
+            find: true,
+            create: true,
+            update: true,
+            delete: false,
+          },
+          description: 'Service detail records with structured blocks and optional assets.',
+        },
+        header: {
+          enabled: {
+            find: true,
+            create: true,
+            update: true,
+            delete: false,
+          },
+          description: 'Header navigation documents (logo, links, status).',
+        },
+        footer: {
+          enabled: {
+            find: true,
+            create: true,
+            update: true,
+            delete: false,
+          },
+          description: 'Footer navigation and content documents.',
+        },
+        media: {
+          enabled: {
+            find: true,
+            create: true,
+            update: false,
+            delete: false,
+          },
+          description: 'Uploaded files; reference by ID from pages and services.',
+        },
+      },
+      mcp: {
+        // Runtime schemas match; TS disagrees due to zod type identity across packages.
+        prompts: contentPrompts as unknown as McpPrompts,
+      },
+    }),
     s3Storage({
       collections: {
         media: {
