@@ -44,6 +44,7 @@ You MUST complete the workflow using Payload MCP tools you have permission for:
 4. For **services**: match the services schema (including blocks / Lexical fields as defined in the project).
 5. Never invent media IDs. If an image is required, either use existing media from a find result or omit the relation and keep text-only content.
 6. Respect access control: operations run as the MCP API key user.
+7. Revalidate the cache after saving the content.call the revalidateCms hook.
 
 Proceed now.`,
           },

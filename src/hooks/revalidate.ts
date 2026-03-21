@@ -6,9 +6,13 @@ import { CollectionAfterChangeHook, GlobalAfterChangeHook } from "payload"
 
 
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'https://www.neuhomeservices.com'
+/** Base URL of the Next app that serves GET /api/revalidate (not necessarily the public marketing domain). */
+const REVALIDATE_BASE_URL =
+  process.env.FRONTEND_URL ||
+  'https://www.neuhomeservices.com'
 const REVALIDATE_SECRET = process.env.CACHE_REVALIDATE_SECRET
 
+/** Busts Next.js cache tags on the frontend. Runs from collection afterChange/afterDelete — including saves made via @payloadcms/plugin-mcp (payload.create / payload.update), which execute the same hooks as the admin UI. */
 async function pingRevalidate(tag: string) {
   if (!REVALIDATE_SECRET) {
     console.warn('CACHE_REVALIDATE_SECRET not set — skipping revalidation')
@@ -16,7 +20,7 @@ async function pingRevalidate(tag: string) {
   }
   try {
     const res = await fetch(
-      `${FRONTEND_URL}/api/revalidate?secret=${REVALIDATE_SECRET}&tag=${tag}`,
+      `${REVALIDATE_BASE_URL.replace(/\/$/, '')}/api/revalidate?secret=${REVALIDATE_SECRET}&tag=${tag}`,
       { method: 'GET' }
     )
     if (res.ok) {
