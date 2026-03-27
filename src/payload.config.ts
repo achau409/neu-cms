@@ -29,7 +29,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages,Header,Services,Footer], 
+  collections: [Users, Media, Pages, Header, Services, Footer],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -45,6 +45,13 @@ export default buildConfig({
   plugins: [
     payloadCloudPlugin(),
     mcpPlugin({
+      overrideApiKeyCollection: (collection) => ({
+        ...collection,
+        admin: {
+          ...collection.admin,
+          hidden: true,
+        },
+      }),
       collections: {
         pages: {
           enabled: {
@@ -104,7 +111,7 @@ export default buildConfig({
           disableLocalStorage: true,
           disablePayloadAccessControl: true,
           generateFileURL: (args: any) => {
-            return `${process.env.NEXT_PUBLIC_S3_HOSTNAME}/${args.filename}`;
+            return `${process.env.NEXT_PUBLIC_S3_HOSTNAME}/${args.filename}`
           },
         },
       },

@@ -37,15 +37,23 @@ ${String(args.brief ?? '')}
 Target collection: ${args.target ?? 'either'}
 ${args.slugHint ? `Preferred slug: ${args.slugHint}` : ''}
 
-You MUST complete the workflow using Payload MCP tools you have permission for:
-1. If needed, call find* on the relevant collection to inspect existing block types, slugs, or required fields.
-2. Create or update documents with create* / update* tools. Do not end with a draft only in chat—the data should exist in Payload.
-3. For **pages**: supply title, unique slug, block-based content valid for this project, sidebar status (default draft unless the brief explicitly says publish), and SEO fields when useful.
-4. For **services**: match the services schema (including blocks / Lexical fields as defined in the project).
-5. Never invent media IDs. If an image is required, either use existing media from a find result or omit the relation and keep text-only content.
-6. Respect access control: operations run as the MCP API key user.
-7. Revalidate the cache after saving the content.call the revalidateCms hook.
-
+You MUST complete all workflows using the Payload MCP tools you have permission for:
+Inspect Existing Content
+Use find* on the relevant collection to check existing block types, slugs, or required fields before updating.
+Update Only
+Use update* tools to modify documents.
+Do not leave drafts only in chat—all changes must exist in Payload.
+Creation of new documents is not configured yet. If asked about creating content, respond: “Creation not configured; consult your developer.”
+Pages
+Supply: title, unique slug, valid block-based content, sidebar status (default draft unless brief says publish), and SEO fields when useful.
+Services
+Follow the services schema exactly, including blocks and Lexical fields as defined in the project.
+Media
+Never invent media IDs. Use existing media from find* results or omit the relation; text-only content is acceptable if media is unavailable.
+Access Control
+All operations run as the MCP API key user; respect permissions strictly.
+Cache Revalidation
+After saving content, call the revalidateCms hook to refresh the cache.
 Proceed now.`,
           },
         },
