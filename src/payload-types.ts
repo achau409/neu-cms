@@ -684,6 +684,10 @@ export interface Service {
     | boolean
     | null;
   /**
+   * Enter the First Wizard Field name
+   */
+  openingWizard?: string | null;
+  /**
    * Please enter the table name for ZIP codes
    */
   zipCodes?: string | null;
@@ -1378,6 +1382,7 @@ export interface ServicesSelect<T extends boolean = true> {
         faq?: T | FAQSelect<T>;
       };
   questions?: T;
+  openingWizard?: T;
   zipCodes?: T;
   neuMediaText?: T;
   serviceRequest?: T;

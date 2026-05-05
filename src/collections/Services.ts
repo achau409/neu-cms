@@ -293,6 +293,14 @@ export const Services: CollectionConfig = {
       },
     },
     {
+      name: 'openingWizard',
+      type: 'text',
+      label: 'First Wizard Field ',
+      admin: {
+        description: 'Enter the First Wizard Field name',
+      },
+    },
+    {
       name: 'zipCodes',
       type: 'text',
       label: 'ZIP Codes Table',
@@ -300,6 +308,7 @@ export const Services: CollectionConfig = {
         description: 'Please enter the table name for ZIP codes',
       },
     },
+
     {
       name: 'neuMediaText',
       type: 'text',
@@ -362,7 +371,7 @@ export const Services: CollectionConfig = {
       options: [
         { label: '2xl', value: '2xl' },
         { label: '3xl', value: '3xl' },
-        { label: '4xl', value: '4xl' }
+        { label: '4xl', value: '4xl' },
       ],
       admin: {
         position: 'sidebar',
